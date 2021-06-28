@@ -1,0 +1,143 @@
+{% extends 'index.html' %} 
+{% block content %}
+<header class="container-fluid nav-style mx-auto">
+<div class="row">
+<div class="col-md-12 col-12 mx-auto mt-2">
+    <section class=" align-items-center justify-content-center" style=" background-color: rgb(255, 255, 255);padding: 27px;">
+        <h3 class="mt-10 d-flex align-items-center justify-content-center"> Visual Question Answering (VQA).</h3>
+           
+            <div class="row d-flex col-sm-11 align-items-center justify-content-center imger ">
+                <h4 class="" style="text-align: center;">          Model Architechture :</h4>
+                <img class="mb-3 " src="{{url_for('static', filename='pytorchvqamodel.png')}}" style="margin-left: 10%;width:900px;height:200px;" alt="summary"/>
+            </div>
+    </section>
+
+    </div>
+</div>
+<div class="row">
+   <div class="col-md-6" >
+    <section class=" align-items-center justify-content-center" style=" background-color: whitesmoke;padding: 27px;border:1px solid rgb(255, 255, 255)">
+        
+        <h5>1) Upload image:</h5><h6> 💡 last uploaded file</h6>
+        
+        <form action="/" class="form-upload d-flex mt-3" method=POST enctype=multipart/form-data >
+
+            <input type="file" name="file" class="form-control-file" id="inputfile" onchange="preview_image(event)" style="font-weight: bold;" required>
+            <button class="btn btn-primary" type="submit" value="submit1" name="btnSub" id="btnSub" type="submit" style="font-weight: bold;height:37px;">Click to save</button>
+            <br>
+            <br>
+        </form>
+        
+        {% if image_name%}
+          <img id="output-image" src="{{url_for('static', filename='assets/images/'+image_name)}}" class="rounded mx-auto d-block mt-2 mb-2" style="height:150px;width:300px"/>
+        {% else %}
+        <img id="output-image" src="{{ url_for('static', filename='assets/images/'+file) }}" class="rounded mx-auto d-block mt-2 mb-2" style="height:150px;width:300px"/>
+        {% endif %}
+
+        
+          <h5>2) Enter question:</h5>
+          <form action="/output" method="POST">
+          <div class="row d-flex">
+            <div class="inner1 col-md-6" style="border: 1px solid gray; height: 40px; border-radius: 8px;">
+              <input type="text" class="form-control"  id="final" name="final" col="8" rows="1" style="height: 38px;"></input>
+              
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-success" id="start"><i class="fa fa-microphone"></i></button>
+              <button class="btn btn-danger" id="stop"><i class="fa fa-microphone-slash"></i></button>
+              <button class="btn btn-info" id="submit" type="submit" >Submit</button>
+            </div>
+          </div>
+         
+        </form>
+        
+    </section>
+   </div>
+   <div class="col-md-6" >
+    <section class=" align-items-center justify-content-center" style=" background-color: rgb(255, 255, 255);padding: 27px;">
+        
+          <h5 style = "text-transform:capitalize;">Question you asked : {{quesName}}</h5>
+          <h5 style = "text-transform:capitalize;">Model Answer : {{fnAns}}</h5>
+         
+          <h6>Now Just leave out the word that is weakest :</h6>
+          {% for i in ans_dict %}
+          <h6>{{ i }}</h6>
+          {% endfor %}
+          
+    </section>
+   </div>
+</div>
+
+</header>
+
+  <script>
+      document.getElementById("btnSub").addEventListener("click", function(e){
+      
+      });
+      
+      function preview_image(event) {
+    var reader = new FileReader();
+    reader.onload = function () {
+      var output = document.getElementById('output-image')
+      output.src = reader.result;
+    }
+    reader.readAsDataURL(event.target.files[0]);
+  }
+
+
+  //speech stuff
+  var recog= window.webkitSpeechRecognition;
+  var speecher=new recog();
+  //
+  lang="English";
+  speecher.continuous = true;
+  //speecher.interimResults = true;
+  speecher.lang =lang; 
+
+  var final_transcript = '';
+
+  speecher.onstart = () => {
+   // add something
+  };
+  speecher.onerror = () => {
+    
+    console.log("Speech Recognition Error");
+  };
+  speecher.onend = () => {
+   
+    console.log("Speech Recognition Ended");
+  };
+
+  speecher.onresult=function(event){
+   let current=event.resultIndex;
+   let transcript=event.results[current][0].transcript;
+   final_transcript+=transcript;
+   $("#final").val(transcript);
+  }
+
+  $("#start").click(function(event){
+    if(final_transcript.length){
+    final_transcript+='';
+    }
+    speecher.start();
+    //console.log("I am here ")
+  })
+
+  $("#stop").click(function(event){
+    speecher.stop();
+})
+
+////-------------
+$(document).ready(function() {
+  $('#start').click(function(e){
+    e.preventDefault();
+  });
+  $('#stop').click(function(e){
+    e.preventDefault();
+  });
+})
+
+  </script>
+  
+
+{% endblock %}

@@ -19,14 +19,12 @@ A fully trained model (convergence shown below) is [available for download][5].
 More efficient model repo ==[click here](https://github.com/Cyanogenoid/vqa-counting) 
 
 
-## Running the model
-
 - Clone repository which i have used:
 ```
 git clone https://github.com/Cyanogenoid/pytorch-vqa --recursive
 ```
 
-## Python 3 dependencies (tested on Python 3.6.2)
+## Python 3 dependencies (tested on Python 3.8)
 
 - torch
 - torchvision

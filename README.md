@@ -1,7 +1,10 @@
 
 For More depth knowledge:
+
 Detectron2-[click here](https://github.com/facebookresearch/detectron2)
+
 visualqa.org-[click here](http://vqa.cloudcv.org/)
+
 Bilinear Attention Networks[click here](https://github.com/Cyanogenoid/vqa-counting)
 
 # visual question answering

@@ -11,6 +11,11 @@ Bilinear Attention Networks-[click here](https://github.com/Cyanogenoid/vqa-coun
 
 Main Repo-[Click here](https://github.com/Cyanogenoid)
 
+#Download necessary repo
+!git clone https://github.com/Cyanogenoid/pytorch-vqa.git
+
+!git clone https://github.com/Cyanogenoid/pytorch-resnet.git
+
 # Download pre-trined model
 Download-[Click here](https://github.com/Cyanogenoid/pytorch-vqa/releases/download/v1.0/2017-08-04_00.55.19.pth)
 

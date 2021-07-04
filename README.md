@@ -13,9 +13,7 @@ Bilinear Attention Networks-[click here](https://github.com/Cyanogenoid/vqa-coun
 
 # visual question answering
 
-Main Repo-[Click here](https://github.com/Cyanogenoid)
-
-#Download necessary repo
+# Download necessary repo
 
 !git clone https://github.com/Cyanogenoid/pytorch-vqa.git
 

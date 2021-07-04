@@ -8,6 +8,7 @@ visualqa.org-[click here](http://vqa.cloudcv.org/)
 Bilinear Attention Networks-[click here](https://github.com/Cyanogenoid/vqa-counting)
 
 Clone this repo:
+
 !git clone https://github.com/vikrantmane7781/pytorchResnetVQA.git --recursive
 
 # visual question answering

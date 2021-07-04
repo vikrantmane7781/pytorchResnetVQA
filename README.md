@@ -41,16 +41,17 @@ git clone https://github.com/Cyanogenoid/pytorch-vqa --recursive
 - h5py
 - tqdm
 
-#Some outputs-
-#1
+# Some outputs-
+*1
 ![Alt text](https://github.com/vikrantmane7781/pytorchResnetVQA/blob/main/static/Screenshot%20(15).png?raw=true "Optional Title")
 
-#2
+*2
 ![Alt text](https://github.com/vikrantmane7781/pytorchResnetVQA/blob/main/static/Screenshot%20(16).png?raw=true "Optional Title")
-#3
+
+*3
 ![Alt text](https://github.com/vikrantmane7781/pytorchResnetVQA/blob/main/static/Screenshot%20(17).png?raw=true "Optional Title")
 
-#4
+*4
 ![Alt text](https://github.com/vikrantmane7781/pytorchResnetVQA/blob/main/static/Screenshot%20(14).png?raw=true "Optional Title")
 
 [0]: https://arxiv.org/abs/1704.03162

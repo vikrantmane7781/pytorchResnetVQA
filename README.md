@@ -1,4 +1,6 @@
 
+# VQA(visual question answering)
+
 For More depth knowledge:
 
 Detectron2-[click here](https://github.com/facebookresearch/detectron2)
@@ -11,7 +13,7 @@ Bilinear Attention Networks-[click here](https://github.com/Cyanogenoid/vqa-coun
 
 !git clone https://github.com/vikrantmane7781/pytorchResnetVQA.git --recursive
 
-# visual question answering
+
 
 # Download necessary repo
 
